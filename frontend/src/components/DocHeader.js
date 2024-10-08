@@ -1,27 +1,8 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import html2pdf from "html2pdf.js";
-import { useNavigate } from "react-router-dom";
 
-function DocumentHeader({ editorContent }) {
-  const navigation = useNavigate();
-
-  const handleDownloadPDF = () => {
-    // console.log(editorContent);
-    const opt = {
-      margin: 1,
-      filename: "document.pdf",
-      image: { type: "jpeg", quality: 0.98 },
-      html2canvas: { scale: 2 },
-      jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
-    };
-    html2pdf().from(editorContent).set(opt).save(); // Convert and download the content as a PDF
-  };
-
-  const handleDocBtn = () => {
-    navigation("/");
-  };
-
+function DocHeader({ editorContent }) {
   return (
     <Box
       sx={{
@@ -30,7 +11,7 @@ function DocumentHeader({ editorContent }) {
         height: "70px",
         backgroundColor: "white",
         boxShadow: "0 2px 15px rgba(0,0,0,0.1)",
-        marginBottom: "15px",
+
         justifyContent: "space-between",
         padding: "0px 15px",
         alignItems: "center",
@@ -43,7 +24,6 @@ function DocumentHeader({ editorContent }) {
           gap: "15px",
           alignItems: "center",
         }}
-        onClick={handleDocBtn}
       >
         <img
           src={require("../assets/docs.png")}
@@ -63,29 +43,6 @@ function DocumentHeader({ editorContent }) {
           alignItems: "center",
         }}
       >
-        <Box
-          sx={{
-            display: "flex",
-            width: "100px",
-            height: "40px",
-            backgroundColor: "#518FF5",
-            borderRadius: "10px",
-            alignItems: "center",
-            justifyContent: "center",
-            cursor: "pointer",
-            "&:hover": {
-              opacity: 0.7,
-            },
-            "&:active": {
-              opacity: 0.5,
-            },
-          }}
-        >
-          <Box sx={{ color: "white" }} onClick={handleDownloadPDF}>
-            Download
-          </Box>
-        </Box>
-
         <Box
           sx={{
             width: "50px",
@@ -113,4 +70,4 @@ function DocumentHeader({ editorContent }) {
   );
 }
 
-export default DocumentHeader;
+export default DocHeader;

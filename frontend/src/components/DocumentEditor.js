@@ -88,7 +88,7 @@ function DocumentEditor() {
           sx={{
             display: "flex",
             position: "absolute",
-            top: inputPosition.top + 130,
+            top: inputPosition.top + 150,
             left: inputPosition.left + 15,
             zIndex: 1000,
             backgroundColor: "#fff",
@@ -107,9 +107,6 @@ function DocumentEditor() {
           <Button onClick={handleInputSubmit}>Insert</Button>
         </Box>
       )}
-      {/* <Button onClick={handleDownloadPDF} variant="contained" color="primary">
-        Download as PDF
-      </Button> */}
     </>
   );
 }
