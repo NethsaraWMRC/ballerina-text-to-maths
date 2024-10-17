@@ -14,7 +14,7 @@ type FindByIdRequest record {
 
 // MongoDB client to connect to the database
 mongodb:Client mongoDbClient = check new ({
-    connection: "mongodb+srv://ravindunethsara:123@cluster0.p8sefhh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    connection: [mondbUri]
 });
 
 // Define a service with a base path for the API
